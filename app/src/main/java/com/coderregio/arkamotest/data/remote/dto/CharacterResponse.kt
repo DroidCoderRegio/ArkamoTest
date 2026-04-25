@@ -3,5 +3,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CharacterResponse(
-    val results: List<CharacterDto>? = listOf()
+    val results: List<CharacterDto>
 )
