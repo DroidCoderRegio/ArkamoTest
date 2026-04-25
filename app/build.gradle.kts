@@ -61,7 +61,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    // Ktor
+    //ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //Ktor
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.negotiation)
