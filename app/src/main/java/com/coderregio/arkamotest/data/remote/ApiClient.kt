@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 
 object ApiClient {
 
-    private const val BASE_URL = "https://rickandmortyapi.com/api/character"
+    private const val BASE_URL = "https://rickandmortyapi.com/api"
 
     val client = HttpClient(OkHttp) {
         install(ContentNegotiation) {
