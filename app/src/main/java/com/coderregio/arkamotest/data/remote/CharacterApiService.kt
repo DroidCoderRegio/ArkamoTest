@@ -10,6 +10,6 @@ class CharacterApiService(
 ) {
 
     suspend fun getCharacters(): CharacterResponse {
-        return client.get("${ApiClient.getBaseUrl()}character").body()
+        return client.get("${ApiClient.getBaseUrl()}/character").body()
     }
 }

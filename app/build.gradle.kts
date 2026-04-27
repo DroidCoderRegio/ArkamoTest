@@ -72,6 +72,7 @@ dependencies {
 
     //Images
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.ktor3)
 
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
