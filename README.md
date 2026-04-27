@@ -4,33 +4,43 @@ Proyecto desarrollado como prueba técnica para consumir la API pública de Rick
 
 ## Decisiones técnicas
 
--Se utilizó una arquitectura MVVM simple, separando responsabilidades entre UI, ViewModel y Repository. Se evitó implementar una arquitectura más compleja para priorizar claridad y velocidad de desarrollo.
--La interfaz se desarrolló con Jetpack Compose, aprovechando su enfoque declarativo para manejar el estado de la UI.
--El estado se maneja mediante StateFlow, lo que permite una integración directa con Compose y un flujo reactivo sencillo.
--Para consumo de API se utilizó Ktor con una configuración mínima.
--La carga de imágenes se implementó con Coil, incluyendo placeholder y manejo de error, optimizado para listas.
+Se utilizó una arquitectura MVVM simple, separando responsabilidades entre UI, ViewModel y Repository. Se evitó implementar una arquitectura más compleja para priorizar claridad y velocidad de desarrollo.
+
+La interfaz se desarrolló con Jetpack Compose, aprovechando su enfoque declarativo para manejar el estado de la UI.
+
+El estado se maneja mediante StateFlow, lo que permite una integración directa con Compose y un flujo reactivo sencillo.
+
+Para consumo de API se utilizó Ktor con una configuración mínima.
+
+La carga de imágenes se implementó con Coil, incluyendo placeholder y manejo de error, optimizado para listas.
 
 ## Manejo de estado
 
 La UI maneja explícitamente tres estados:
-*Loading
-*Success 
-*Error
+
+* Loading
+* Success
+* Error
 
 En caso de error, se muestra un Snackbar persistente con opción de reintentar la operación.
 
 ## Estructura del proyecto
+
+```
 data/
-    model/
-    remote/
-        dto/
-        mapper/
-    repository/
+  model/
+  remote/
+    dto/
+    mapper/
+  repository/
+
 ui/
-    components/
-    screen/
-    theme
+  components/
+  screen/
+  theme/
+
 viewmodel/
+```
 
 Se mantuvo una estructura simple y entendible, evitando sobreingeniería.
 
