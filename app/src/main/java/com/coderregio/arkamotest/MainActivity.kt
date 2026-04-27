@@ -4,44 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.coderregio.arkamotest.data.remote.ApiClient
+import com.coderregio.arkamotest.data.remote.CharacterApiService
+import com.coderregio.arkamotest.data.repository.CharacterRepository
+import com.coderregio.arkamotest.ui.screen.CharacterScreen
 import com.coderregio.arkamotest.ui.theme.ArkamoTestTheme
+import com.coderregio.arkamotest.viewmodel.CharacterViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        // Dependencias
+        val apiService = CharacterApiService(ApiClient.client)
+        val repository = CharacterRepository(apiService)
+        val factory = CharacterViewModelFactory(repository)
         setContent {
             ArkamoTestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                CharacterScreen(factory = factory)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ArkamoTestTheme {
-        Greeting("Android")
     }
 }

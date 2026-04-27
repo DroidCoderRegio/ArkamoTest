@@ -22,13 +22,18 @@ class CharacterViewModel(
             try {
                 val characters = repository.getCharacters()
                 mutableState.update {
-                    it.copy(characters = characters, isLoading = false)
+                    it.copy(
+                        isLoading = false,
+                        characters = characters,
+                        hasLoaded = true
+                    )
                 }
             } catch (e: Exception) {
                 mutableState.update {
                     it.copy(
                         isLoading = false,
-                        error = "Error al cargar personajes"
+                        error = "Error al cargar personajes",
+                        hasLoaded = true
                     )
                 }
             }

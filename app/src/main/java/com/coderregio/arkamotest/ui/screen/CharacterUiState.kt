@@ -5,5 +5,6 @@ import com.coderregio.arkamotest.data.model.CharacterModel
 data class CharacterUiState(
     val isLoading: Boolean = false,
     val characters: List<CharacterModel> = emptyList(),
-    val error: String? = null
+    val error: String? = null,
+    val hasLoaded: Boolean = false
 )
